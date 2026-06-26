@@ -1,5 +1,23 @@
 # Spring Boot CRUD Application with H2 Database
 
+## ⚠️ Migration Project Notice
+
+**This project contains intentional legacy Java 17 code patterns for testing migration tools!**
+
+This repository includes a `legacy` package with 8 files containing deprecated Java APIs and patterns that need migration to Java 21. See [MIGRATION_GUIDE.md](MIGRATION_GUIDE.md) for detailed information about all migration challenges.
+
+### Legacy Code Patterns Included:
+- SecurityManager (removed in Java 21)
+- Thread management deprecations
+- finalize() methods (removed in Java 18+)
+- URL encoding deprecations
+- Legacy Date/Time API
+- Reflection with strong encapsulation issues
+- Legacy collections (Vector, Stack, Hashtable)
+- StringBuffer performance issues
+
+---
+
 A simple CRUD (Create, Read, Update, Delete) application built with Java 17, Spring Boot 3.1.5, Spring Data JPA, and H2 in-memory database.
 
 ## Features
