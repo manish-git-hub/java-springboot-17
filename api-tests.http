@@ -1,0 +1,70 @@
+### Spring Boot CRUD Application - API Tests
+### Use the REST Client extension in VSCode to run these tests
+### Install: humao.rest-client
+
+@baseUrl = http://localhost:8080/api/users
+
+### 1. Create a new user
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "1234567890",
+  "address": "123 Main Street, New York, NY"
+}
+
+### 2. Create another user
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane.smith@example.com",
+  "phone": "0987654321",
+  "address": "456 Oak Avenue, Los Angeles, CA"
+}
+
+### 3. Get all users
+GET {{baseUrl}}
+
+### 4. Get user by ID (change ID as needed)
+GET {{baseUrl}}/1
+
+### 5. Get user by email
+GET {{baseUrl}}/email/john.doe@example.com
+
+### 6. Update user (change ID as needed)
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "name": "John Doe Updated",
+  "email": "john.updated@example.com",
+  "phone": "5555555555",
+  "address": "789 Pine Road, Chicago, IL"
+}
+
+### 7. Delete user (change ID as needed)
+DELETE {{baseUrl}}/1
+
+### 8. Try to get deleted user (should return 404)
+GET {{baseUrl}}/1
+
+### 9. Create user with duplicate email (should fail)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Duplicate User",
+  "email": "jane.smith@example.com",
+  "phone": "1111111111",
+  "address": "999 Test Street"
+}
+
+### 10. H2 Database Console
+### Open in browser: http://localhost:8080/h2-console
+### JDBC URL: jdbc:h2:mem:testdb
+### Username: sa
+### Password: (leave empty)
